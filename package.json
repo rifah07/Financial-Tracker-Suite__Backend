@@ -1,0 +1,30 @@
+{
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "name": "financial-tracker-suite",
+  "version": "1.0.0",
+  "description": "A tool to track and manage your financial expense",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rifah07/Financial-Tracker-Suite.git"
+  },
+  "keywords": [
+    "Expense",
+    "tracker",
+    "pro",
+    "Financial",
+    "Tracker",
+    "Suite"
+  ],
+  "author": "Rifah Sajida Deya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rifah07/Financial-Tracker-Suite/issues"
+  },
+  "homepage": "https://github.com/rifah07/Financial-Tracker-Suite#readme"
+}
