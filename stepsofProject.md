@@ -5,6 +5,8 @@ Installation commands:
 3. npm install nodemon
 4. npm install express-async-errors
 5. npm install mongoose
+6. npm install dotenv
+7. 
 
 
 
