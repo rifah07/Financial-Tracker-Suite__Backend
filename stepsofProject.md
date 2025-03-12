@@ -6,7 +6,7 @@ Installation commands:
 4. npm install express-async-errors
 5. npm install mongoose
 6. npm install dotenv
-7. 
+7. npm install bcrypt/ npm i @gab706/becrypt
 
 
 
@@ -34,3 +34,5 @@ Steps:
 20. Add usersModel, this name should be same as you exported in "models" it Now add registration part code in register..js
 21. Add registration paer code in register.js, add custom validation there for confirming all type of validations and handling error
 22. Now run, registration must be working
+23. Install 'becrypt' to encode password for ensuring security, use code in above point 7
+24. 
