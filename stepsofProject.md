@@ -18,16 +18,19 @@ Steps:
 4. Create an express app(const app, app.listen...), the code is in app.js
 5. Create a new folder named "handler" and a file inside it as "errorHandler.js" and write code for it, see in the file
 6. In terminal type "npm start" to run the project, it should be running.
-7. Now install packages in the above list (6)
-8. Go to 'app.js' and import "dotenv"
-9. Import mongoose, write codes in app.js to connect database, add api in the .env file showed as example.env file
-10. Now to do modular configuration, to next steps, it is needed to maintain large project efficiently and easily
-11. Create a new folder in the main project directory as "modules" and add folder "transactions" and "users"
-12. Inside "modules/users" add a file "users.routes.js"
-13. Inside "modules/users" add a folder as "controllers" and add a file as "register.js"
-14. Write code in register.js for just cheking status (just for now) and add routing code for it in 'users.routes.js'
-15. Add 'users.routes.js' in app,js and run code then check in postman
-16. A tip: to get a specific code file , in VS Code press CTRL + P, and type file name
-17. Go to register.js
-18. Import mongoose
-19. Add usersModel, this name should be same as you exported in "models" it as
+7. Add "models" folder ans add user schema there, with validation message
+8. Now install packages in the above list (6)
+9. Go to 'app.js' and import "dotenv"
+10. Import mongoose, write codes in app.js to connect database, add api in the .env file showed as example.env file
+11. Now to do modular configuration, to next steps, it is needed to maintain large project efficiently and easily
+12. Create a new folder in the main project directory as "modules" and add folder "transactions" and "users"
+13. Inside "modules/users" add a file "users.routes.js"
+14. Inside "modules/users" add a folder as "controllers" and add a file as "register.js"
+15. Write code in register.js for just cheking status (just for now) and add routing code for it in 'users.routes.js'
+16. Add 'users.routes.js' in app,js and run code then check in postman
+17. A tip: to get a specific code file , in VS Code press CTRL + P, and type file name
+18. Go to register.js
+19. Import mongoose
+20. Add usersModel, this name should be same as you exported in "models" it Now add registration part code in register..js
+21. Add registration paer code in register.js, add custom validation there for confirming all type of validations and handling error
+22. Now run, registration must be working
