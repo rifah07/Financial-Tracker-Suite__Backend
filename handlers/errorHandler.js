@@ -1,15 +1,21 @@
 const { error } = require("console");
 
-const errorHandler = (erroe, req, res, next) =>{
-    if(error){
-        res.status(400).json({
-            status: "failed",
-            error: error
-        })
-    }else{
-        next()
+const errorHandler = (error, req, res, next) => {
+  if (error) {
+    if (error.message) {
+      res.status(400).json({
+        status: "failed",
+        error: error.message,
+      });
+    } else {
+      res.status(400).json({
+        status: "failed",
+        error: error,
+      });
     }
+  } else {
+    next();
+  }
+};
 
-}
-
-module.exports= errorHandler;
+module.exports = errorHandler;

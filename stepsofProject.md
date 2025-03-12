@@ -27,3 +27,7 @@ Steps:
 13. Inside "modules/users" add a folder as "controllers" and add a file as "register.js"
 14. Write code in register.js for just cheking status (just for now) and add routing code for it in 'users.routes.js'
 15. Add 'users.routes.js' in app,js and run code then check in postman
+16. A tip: to get a specific code file , in VS Code press CTRL + P, and type file name
+17. Go to register.js
+18. Import mongoose
+19. Add usersModel, this name should be same as you exported in "models" it as
