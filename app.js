@@ -2,6 +2,7 @@ require("express-async-errors");
 const express = require("express");
 const errorHandler = require("./handlers/errorHandler");
 const mongoose = require("mongoose");
+const userRoutes = require("./modules/users/users.routes");
 
 require("dotenv").config();
 
@@ -21,6 +22,10 @@ mongoose
 require("./models/users.model");
 
 app.use(express.json());
+
+//routes
+
+app.use("/api/users", userRoutes);
 
 //end of all routes
 app.use(errorHandler);
