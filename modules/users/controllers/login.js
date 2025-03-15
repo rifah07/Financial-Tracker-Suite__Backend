@@ -1,10 +1,17 @@
 const mongoose = require("mongoose");
-const login = (req, res) => {
+const login = async (req, res) => {
 
     const usersModel = mongoose.model("users");
 
 
-    const { emain, password } = req.body;
+    const { email, password } = req.body;
+
+    const getUser = await usersModel.findOne({
+        email: email
+
+    })
+
+    if (!getUser) throw "This email does not exist";
 
     res.status(200).json({
         status: "Success",
