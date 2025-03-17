@@ -22,7 +22,7 @@ const login = async (req, res) => {
       _id: getUser._id,
       name: getUser.name,
     },
-    "rsd-s-secret-key-123"
+    process.env.jwt_salt
   );
 
   //success response

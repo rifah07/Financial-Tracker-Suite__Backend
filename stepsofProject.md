@@ -44,4 +44,5 @@ Steps:
 29. CReate a file as "userDashboard.js" and add the function, export t and add its route like point 28.
 30. Type above 8 point code in terminal and run, this is JWT for implementing authetication.
 31. Import jsonwebtoken in login.js.
-32. 
+32. Add secret in .env
+33. SAve and Run.
