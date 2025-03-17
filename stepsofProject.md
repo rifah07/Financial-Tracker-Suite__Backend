@@ -7,6 +7,7 @@ Installation commands:
 5. npm install mongoose
 6. npm install dotenv
 7. npm install bcrypt/ npm i @gab706/becrypt
+8. npm install jsonwebtoken
 
 
 
