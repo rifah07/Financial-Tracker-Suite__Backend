@@ -39,3 +39,6 @@ Steps:
 25. Run the project, it must be ok.
 26. Impliment login paer as in file login.js
 27. In login.js, decrypt password using becrypt and check password to login.
+28. Add login roure in users.routes.js
+29. CReate a file as "userDashboard.js" and add the function, export t and add its route like point 28.
+30. 
