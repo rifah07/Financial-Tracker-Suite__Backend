@@ -1,32 +1,26 @@
 const mongoose = require("mongoose");
-const bcrypt= require("bcrypt");
+const bcrypt = require("bcrypt");
 const login = async (req, res) => {
+  const usersModel = mongoose.model("users");
 
-    const usersModel = mongoose.model("users");
+  const { email, password } = req.body;
 
+  const getUser = await usersModel.findOne({
+    email: email,
+  });
 
-    const { email, password } = req.body;
+  if (!getUser) throw "This email does not exist";
 
-    const getUser = await usersModel.findOne({
-        email: email
+  const confirmPassword = await bcrypt.compare(password, getUser.password);
 
-    })
+  if (!confirmPassword) throw "Email and Password do not match";
 
-    if (!getUser) throw "This email does not exist";
+  //success response
 
-    const confirmPassword= await bcrypt.compare(password, getUser.password);
-
-    if(!confirmPassword) throw "Email and Password do not match";
-
-    console.log(getUser);
-
-
-    //success response
-
-    res.status(200).json({
-        status: "Success",
-        message: "Login Successful"
-    })
-}
+  res.status(200).json({
+    status: "Success",
+    message: "Login Successful",
+  });
+};
 
 module.exports = login;
