@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const bcrypt= require("bcrypt");
 const login = async (req, res) => {
 
     const usersModel = mongoose.model("users");
@@ -13,7 +14,14 @@ const login = async (req, res) => {
 
     if (!getUser) throw "This email does not exist";
 
+    const confirmPassword= await bcrypt.compare(password, getUser.password);
+
+    if(!confirmPassword) throw "Email and Password do not match";
+
     console.log(getUser);
+
+
+    //success response
 
     res.status(200).json({
         status: "Success",
