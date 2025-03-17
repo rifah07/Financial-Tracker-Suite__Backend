@@ -35,5 +35,7 @@ Steps:
 21. Add registration paer code in register.js, add custom validation there for confirming all type of validations and handling error
 22. Now run, registration must be working
 23. Install 'becrypt' to encode password for ensuring security, use code in above point 7
-24. Now in register.js, use bacrypt to has password (use second paramet to enode multiple times 10-12 is standard) and save.
+24. Now in register.js, use bacrypt to has password (use second parameter to enode multiple times 10-12 is standard) and save.
 25. Run the project, it must be ok.
+26. Impliment login paer as in file login.js
+27. In login.js, decrypt password using becrypt and check password to login.
