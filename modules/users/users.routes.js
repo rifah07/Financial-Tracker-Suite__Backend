@@ -12,7 +12,9 @@ const userRoutes = express.Router();
 userRoutes.post("/register", register);
 userRoutes.post("/login", login);
 
-userRoutes.use(auth)
+userRoutes.use(auth);
+
+//protected routes
 
 userRoutes.get("/dashboard", userDashboard);
 
