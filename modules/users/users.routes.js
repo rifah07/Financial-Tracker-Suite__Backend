@@ -3,6 +3,7 @@ const usersModel = require("../../models/users.model");
 const register = require("./controllers/register");
 const login = require("./controllers/login");
 const userDashboard = require("./controllers/userDashboard");
+const auth = require("../../middleware/auth");
 
 const userRoutes = express.Router();
 
@@ -10,6 +11,8 @@ const userRoutes = express.Router();
 
 userRoutes.post("/register", register);
 userRoutes.post("/login", login);
+
+userRoutes.use(auth)
 
 userRoutes.get("/dashboard", userDashboard);
 

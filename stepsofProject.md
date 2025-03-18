@@ -45,4 +45,7 @@ Steps:
 30. Type above 8 point code in terminal and run, this is JWT for implementing authetication.
 31. Import jsonwebtoken in login.js.
 32. Add secret in .env
-33. SAve and Run.
+33. Save and Run.
+34. Create a new folder in the main project folder as 'middleware" and inside that reate a new file as 'auth.js"
+35. Go to "user.routes.js" and before the Dashboard route, add route as you see in the file.
+36. 
