@@ -51,3 +51,8 @@ Steps:
 36. In auth.js, write the codes and see the 'req.use" in userDashboard by console.
 37. In postman, go to dashboard and choose "Authorization" ans then "Bearer Token" and enter you access token there.
 38. Save and run (npm start).
+39. Go to userDashboard now
+40. Write codes to fetch data by req.user
+41. See the code where data shows and add .select("-password -the filed you want not to show") to hide the foels you don't want to see.
+42. In users.model, add timestamp to true ans create new account and log in.
+43. 
