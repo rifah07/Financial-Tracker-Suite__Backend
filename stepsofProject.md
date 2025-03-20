@@ -48,4 +48,6 @@ Steps:
 33. Save and Run.
 34. Create a new folder in the main project folder as 'middleware" and inside that reate a new file as 'auth.js"
 35. Go to "user.routes.js" and before the Dashboard route, add route as you see in the file.
-36. 
+36. In auth.js, write the codes and see the 'req.use" in userDashboard by console.
+37. In postman, go to dashboard and choose "Authorization" ans then "Bearer Token" and enter you access token there.
+38. Save and run (npm start).
