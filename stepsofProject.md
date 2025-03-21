@@ -56,4 +56,6 @@ Steps:
 41. See the code where data shows and add .select("-password -the filed you want not to show") to hide the foels you don't want to see.
 42. In users.model, add timestamp to true ans create new account and log in.
 43. Update register.js, with jsonwebtokrn verification.
-44. 
+44. Create new folder as 'managers", new file in it as jwtManager.js.
+45. Centralize jwt sign process by writing code in jwtManager.js. 
+46. Then update register and login with jwtManager.
