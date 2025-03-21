@@ -55,4 +55,5 @@ Steps:
 40. Write codes to fetch data by req.user
 41. See the code where data shows and add .select("-password -the filed you want not to show") to hide the foels you don't want to see.
 42. In users.model, add timestamp to true ans create new account and log in.
-43. 
+43. Update register.js, with jsonwebtokrn verification.
+44. 
