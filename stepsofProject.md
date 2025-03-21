@@ -8,6 +8,7 @@ Installation commands:
 6. npm install dotenv
 7. npm install bcrypt/ npm i @gab706/becrypt
 8. npm install jsonwebtoken
+9. npm i validator
 
 
 
@@ -62,4 +63,7 @@ Steps:
 47. In models folder, duplicate the users.model.js and rename as transactions.model.js and update the file.
 48. Add the model route in app.js.
 49. Add transactionRoute file and add the route in app.js.
-50. 
+50. CReate new folder, "controllers" inside transactions folder and create a new file as 'addIncome.js".
+51. Write code in addIncome.js.
+52. Run point 9 in terminal.
+53. 
