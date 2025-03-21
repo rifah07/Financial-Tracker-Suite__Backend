@@ -59,3 +59,5 @@ Steps:
 44. Create new folder as 'managers", new file in it as jwtManager.js.
 45. Centralize jwt sign process by writing code in jwtManager.js. 
 46. Then update register and login with jwtManager.
+47. In models folder, duplicate the users.model.js and rename as transactions.model.js and update the file.
+48. 
