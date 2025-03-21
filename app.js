@@ -3,6 +3,7 @@ const express = require("express");
 const errorHandler = require("./handlers/errorHandler");
 const mongoose = require("mongoose");
 const userRoutes = require("./modules/users/users.routes");
+const transactionRoutes = require("./modules/transactions/transactions.routes");
 
 require("dotenv").config();
 
@@ -27,6 +28,7 @@ app.use(express.json());
 //routes
 
 app.use("/api/users", userRoutes);
+app.use("/api/transactions", transactionRoutes);
 
 //end of all routes
 app.use(errorHandler);

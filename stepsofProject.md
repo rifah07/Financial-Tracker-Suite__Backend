@@ -61,4 +61,5 @@ Steps:
 46. Then update register and login with jwtManager.
 47. In models folder, duplicate the users.model.js and rename as transactions.model.js and update the file.
 48. Add the model route in app.js.
-49. 
+49. Add transactionRoute file and add the route in app.js.
+50. 
