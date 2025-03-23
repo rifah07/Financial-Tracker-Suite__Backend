@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
 
-const addIncome = (req, res) => {
+const addIncome = async (req, res) => {
   const usersModel = mongoose.model("users");
   const transactionsModel = mongoose.model("transactions");
 
@@ -14,6 +14,27 @@ const addIncome = (req, res) => {
 
   const checkAmountType = validator.isNumeric(amount.toString());
   if (!checkAmountType) throw "Amount must be a number";
+
+  await transactionsModel.create({
+    user_id: req.user._id,
+    amount: amount,
+    transaction_type: "income",
+    remarks: remarks,
+  });
+
+  await usersModel.updateOne(
+    {
+      _id: req.user._id,
+    },
+    {
+      $inc: {
+        balance: amount,
+      },
+    },
+    {
+      runValidators: true,
+    }
+  );
 
   res.status(200).json({
     status: "Success",
