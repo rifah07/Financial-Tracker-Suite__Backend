@@ -71,7 +71,8 @@ Steps:
 55. Update addExpense.js, change function name and module exports name, and
 56. In part of "$inc", multiply the ammount with "-1"
 57. Add custom validation for negative value input in addIncome, and addExpense part, add these routes.
-58. Save and run in postman.
+58. Save and run in postman (i.e. "http://localhost:8000/api/transactions/addExpense",
+     "http://localhost:8000/api/transactions/addIncome").
 59. Add getTransaction.js in transactions>controllers to read/get transaction info.
 60. Add this in routes.
 61. 
