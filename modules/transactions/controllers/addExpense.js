@@ -14,7 +14,7 @@ const addExpense = async (req, res) => {
 
   const checkAmountType = validator.isNumeric(amount.toString());
   if (!checkAmountType) throw "Amount must be a number";
-  if(amount<0) throw "Amount must not be negative";
+  if (amount < 0) throw "Amount must not be negative";
 
   await transactionsModel.create({
     user_id: req.user._id,
