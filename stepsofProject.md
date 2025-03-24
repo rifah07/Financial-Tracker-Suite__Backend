@@ -66,4 +66,12 @@ Steps:
 50. CReate new folder, "controllers" inside transactions folder and create a new file as 'addIncome.js".
 51. Write code in addIncome.js.
 52. Run point 9 in terminal.
-53. 
+53. Add code in addIncome.js.
+54. Now copy paste addIncome.js and rename as addExpense.js.
+55. Update addExpense.js, change function name and module exports name, and
+56. In part of "$inc", multiply the ammount with "-1"
+57. Add custom validation for negative value input in addIncome, and addExpense part, add these routes.
+58. Save and run in postman.
+59. Add getTransaction.js in transactions>controllers to read/get transaction info.
+60. Add this in routes.
+61. 
