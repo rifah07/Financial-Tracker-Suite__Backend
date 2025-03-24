@@ -15,6 +15,6 @@ transactionRoutes.use(auth);
 
 transactionRoutes.post("/addIncome", addIncome);
 transactionRoutes.post("/addExpense", addExpense);
-transactionRoutes.get("/getTransactions", getTransactions);
+transactionRoutes.get("/", getTransactions);
 
 module.exports = transactionRoutes;
