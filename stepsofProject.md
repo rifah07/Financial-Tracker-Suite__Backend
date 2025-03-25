@@ -88,4 +88,7 @@ Steps:
 69. Add sort and limit finction to order and see only some recent transactions.
 70. Run in your terminal-> the 10 point above, nodemailer.
 71. Go and create an account in "Mailtrap", so that we can work with email without sending to real recepents.
-72. 
+72. Now, copy and paste code for "node" /"nodemailer" in registration code.
+73. Add from, to, text, subject for email, after importing nodemailer in register.js.
+74. Now after registration you should see mail in Mailtrap mailbox.
+75. 
