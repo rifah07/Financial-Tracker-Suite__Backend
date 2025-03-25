@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jsonwebtoken = require("jsonwebtoken");
 const jwtManager = require("../../../managers/jwtManager");
+const nodemailer = require("nodemailer");
 
 const register = async (req, res) => {
   const usersModel = mongoose.model("users");
@@ -34,6 +35,23 @@ const register = async (req, res) => {
   });
 
   const accessToken = await jwtManager(createdUser);
+
+  //send email
+  var transport = nodemailer.createTransport({
+    host: "sandbox.smtp.mailtrap.io",
+    port: 2525,
+    auth: {
+      user: "12ad86218f7fa0",
+      pass: "2af3ff3c8e638f",
+    },
+  });
+
+  await transport.sendMail({
+    to: createdUser.email,
+    from: "info@financialtrackersuite.com", // the domain of production server
+    text: "Welcome! You have successfully registered to Financial Tracker Pro. Thanks for choosing our platform. Hope you can track all your financial transactions here.",
+    subject: "Greetings from Financial Tracker Suite."
+  });
 
   res.status(201).json({
     status: "Congratulations! You've registered successfully!",
