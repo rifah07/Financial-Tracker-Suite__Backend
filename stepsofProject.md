@@ -63,7 +63,7 @@ Steps:
 47. In models folder, duplicate the users.model.js and rename as transactions.model.js and update the file.
 48. Add the model route in app.js.
 49. Add transactionRoute file and add the route in app.js.
-50. CReate new folder, "controllers" inside transactions folder and create a new file as 'addIncome.js".
+50. Create new folder, "controllers" inside transactions folder and create a new file as 'addIncome.js".
 51. Write code in addIncome.js.
 52. Run point 9 in terminal.
 53. Add code in addIncome.js.
@@ -82,4 +82,5 @@ Steps:
 64. This part is called query string parameter-> "?transaction_type=income"
 65. To get this, don't need to craete files, simply add in the getTransactions find filter this code -> "...req.query,"
 66. ...req.query-> is same as same as transaction_type: 'income'/'expense' this query here.
-67. 
+67. To filter with multiple variable, you can just use "&", like-> "http://localhost:8000/api/transactions?transaction_type=expense&amount=10"
+68. 
