@@ -78,4 +78,8 @@ Steps:
     (to test in postman - http://localhost:8000/api/transactions).
 61. This route is like this because to get results easity, if someone wants to just get the result, just pass '/' in api.
 62. In getTransactions.js, write code to find transaction by user_id.
-63. 
+63. This is a route that can filter expense or income, without hard coding routes-> http://localhost:8000/api/transactions?transaction_type=income
+64. This part is called query string parameter-> "?transaction_type=income"
+65. To get this, don't need to craete files, simply add in the getTransactions find filter this code -> "...req.query,"
+66. ...req.query-> is same as same as transaction_type: 'income'/'expense' this query here.
+67. 
