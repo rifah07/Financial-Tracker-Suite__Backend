@@ -10,9 +10,12 @@ const userDashboard = async (req, res) => {
     })
     .select("-password"); //name balance , all except password
 
-  const transactions = await transactionsModel.find({
-    user_id: req.user._id,
-  });
+  const transactions = await transactionsModel
+    .find({
+      user_id: req.user._id,
+    })
+    .sort("-createdAt")
+    .limit(2); //for desending sort oredr -createdAt, for assending createdAt
 
   res.status(200).json({
     status: "Successfull",
