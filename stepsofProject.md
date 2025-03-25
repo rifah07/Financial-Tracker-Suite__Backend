@@ -76,5 +76,6 @@ Steps:
 59. Add getTransaction.js in transactions>controllers to read/get transaction info.
 60. Add this in routes i.e.-> transactionRoutes.get("/", getTransactions),
     (to test in postman - http://localhost:8000/api/transactions).
-61. THis route is like this because to get results easity, if someone wants to just get the result, just pass '/' in api.
-62. 
+61. This route is like this because to get results easity, if someone wants to just get the result, just pass '/' in api.
+62. In getTransactions.js, write code to find transaction by user_id.
+63. 
