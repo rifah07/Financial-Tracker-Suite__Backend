@@ -15,7 +15,7 @@ const userDashboard = async (req, res) => {
       user_id: req.user._id,
     })
     .sort("-createdAt")
-    .limit(2); //for desending sort oredr -createdAt, for assending createdAt
+    .limit(5); //for desending sort oredr -createdAt, for assending createdAt
 
   res.status(200).json({
     status: "Successfull",

@@ -9,6 +9,7 @@ Installation commands:
 7. npm install bcrypt/ npm i @gab706/becrypt
 8. npm install jsonwebtoken
 9. npm i validator
+10. npm i nodemailer
 
 
 
@@ -85,4 +86,5 @@ Steps:
 67. To filter with multiple variable, you can just use "&", like-> "http://localhost:8000/api/transactions?transaction_type=expense&amount=10"
 68. Go to userDashboard.js, add transactions model and find transactions by id.
 69. Add sort and limit finction to order and see only some recent transactions.
-70. 
+70. Run in your terminal-> the 10 point above, nodemailer.
+71. 
