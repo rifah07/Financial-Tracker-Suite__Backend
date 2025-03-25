@@ -91,4 +91,5 @@ Steps:
 72. Now, copy and paste code for "node" /"nodemailer" in registration code.
 73. Add from, to, text, subject for email, after importing nodemailer in register.js.
 74. Now after registration you should see mail in Mailtrap mailbox.
-75. 
+75. Add 'html' part also, for sending mail as in the code file.
+76. 
