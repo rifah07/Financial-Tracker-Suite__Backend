@@ -2,15 +2,22 @@ const mongoose = require("mongoose");
 
 const userDashboard = async (req, res) => {
   const usersModel = mongoose.model("users");
+  const transactionsModel = mongoose.model("transactions");
+
   const getUser = await usersModel
     .findOne({
       _id: req.user._id,
     })
     .select("-password"); //name balance , all except password
-  console.log(req.user);
+
+  const transactions = await transactionsModel.find({
+    user_id: req.user._id,
+  });
+
   res.status(200).json({
     status: "Successfull",
     data: getUser,
+    transactions, //same as transactions: transactions
   });
 };
 
