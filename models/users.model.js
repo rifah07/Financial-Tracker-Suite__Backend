@@ -20,6 +20,9 @@ const usersSchema = new mongoose.Schema(
       required: [true, "Current balance is required"],
       default: 0,
     },
+    reset_code: {
+      type: Number,
+    },
   },
   {
     timestamps: true,

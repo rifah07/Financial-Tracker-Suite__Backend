@@ -92,4 +92,8 @@ Steps:
 73. Add from, to, text, subject for email, after importing nodemailer in register.js.
 74. Now after registration you should see mail in Mailtrap mailbox.
 75. Add 'html' part also, for sending mail as in the code file.
-76. 
+76. Now, to recover when forgotten password create a file in 'users' -> 'controllers' -> "forgotPassword.js".
+77. Initialize and add in routes.
+78. Update users model file, add a new field as 'reset_code'.
+79. Update forgotePassword.js with code.
+80. 
