@@ -49,7 +49,7 @@ const register = async (req, res) => {
   await transport.sendMail({
     to: createdUser.email,
     from: "info@financialtrackersuite.com", // the domain of production server
-    text: "Welcome! You have successfully registered to Financial Tracker Pro. Thanks for choosing our platform. Hope you can track all your financial transactions here.",
+    text: "Welcome! You have successfully registered to Financial Tracker Suite. Thanks for choosing our platform. Hope you can track all your financial transactions here.",
     html: "<h1>Welcome! You have successfully registered to Financial Tracker Pro.</h1><br> <h5> Thanks for choosing us.</h5>",
     subject: "Greetings from Financial Tracker Suite."
   });
