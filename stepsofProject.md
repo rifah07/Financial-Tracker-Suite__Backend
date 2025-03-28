@@ -102,4 +102,5 @@ Steps:
 83. Now it is time for delete transaction part.
 84. Add 'deleteTransaction.js' inside transactions->controllers.
 85. Write the code, add the route and save then check.
-86. 
+86. To edit any transaction, add new file side transactions->controllers as 'editTransaction.js" and add in routes.
+87. 
