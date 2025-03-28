@@ -85,7 +85,7 @@ const editTransaction = async (req, res) => {
 
   res.status(200).json({
     status: "Transaction updated successfully!",
-    updatedFields: Object.keys(updateFields)
+    //updatedFields: Object.keys(updateFields)
   });
 };
 
