@@ -101,4 +101,5 @@ Steps:
 82. Update for forget password, reset password also.
 83. Now it is time for delete transaction part.
 84. Add 'deleteTransaction.js' inside transactions->controllers.
-85. 
+85. Write the code, add the route and save then check.
+86. 
