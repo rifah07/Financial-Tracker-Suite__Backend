@@ -98,4 +98,7 @@ Steps:
 79. Update forgotePassword.js with code.
 80. We are usimg email sending process multiple times, so we can use it reusable. For that, in 'managers' folder createa  file as "emailManager.js".
 81. In that file, add to, html, subject, text instead of req, res because they are dynamic and will be passed when called this module.
-82. 
+82. Update for forget password, reset password also.
+83. Now it is time for delete transaction part.
+84. Add 'deleteTransaction.js' inside transactions->controllers.
+85. 
