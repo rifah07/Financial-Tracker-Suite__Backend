@@ -96,4 +96,5 @@ Steps:
 77. Initialize and add in routes.
 78. Update users model file, add a new field as 'reset_code'.
 79. Update forgotePassword.js with code.
-80. 
+80. We are usimg email sending process multiple times, so we can use it reusable. For that, in 'managers' folder createa  file as "emailManager.js".
+81. 
