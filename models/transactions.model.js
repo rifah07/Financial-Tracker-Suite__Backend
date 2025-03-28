@@ -15,6 +15,16 @@ const transactionsSchema = new mongoose.Schema(
       type: String,
       required: true,
       enum: ["income", "expense"],
+      validate: {
+        validator: function(v) {
+          return ["income", "expense"].includes(v.toLowerCase());
+        },
+        message: 'Transaction type must be income or expense'
+      },
+      // Convert input to lowercase before saving
+      set: function(v) {
+        return v.toLowerCase();
+      }
     },
 
     remarks:{
