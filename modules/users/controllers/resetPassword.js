@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+const emailManager = require("../../../managers/emailManager");
 
 const resetPassword = async (req, res) => {
   const usersModel = mongoose.model("users");
@@ -33,6 +34,14 @@ const resetPassword = async (req, res) => {
     {
       runValidators: true,
     }
+  );
+
+  //send email
+  await emailManager(
+    email,
+    "Welcome! You have successfully reseted your passoword in Financial Tracker Suite. Thanks for being a valued member of our platform. Hope you can track all your financial transactions here.",
+    "<h1>Congratulations! You have successfully reseted your password in Financial Tracker Suite.</h1><br> <h3> Thanks for being with us.</h3>",
+    "Password reset is successfull!"
   );
 
   res.status(200).json({
