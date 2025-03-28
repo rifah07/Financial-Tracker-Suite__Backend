@@ -97,4 +97,5 @@ Steps:
 78. Update users model file, add a new field as 'reset_code'.
 79. Update forgotePassword.js with code.
 80. We are usimg email sending process multiple times, so we can use it reusable. For that, in 'managers' folder createa  file as "emailManager.js".
-81. 
+81. In that file, add to, html, subject, text instead of req, res because they are dynamic and will be passed when called this module.
+82. 
