@@ -108,4 +108,10 @@ Steps:
 88. Main project, done almost. Not if user tries to random route that is not in our stored routes, then thr 404 not found response is to be sent, so add the part in app.js.
 89. Install point 11 of the above points, type in terminal and press enter.
 90. CORS- is used cause frontend, backend maybe deployes diferent place, they may have different IPs, so we install cors so that these doesn;t make problems.
-91. 
+91. Deploy in Render now
+92. In Build Command add - "yarn install --ignore-engines"
+93. Start Command : "yarn run start"
+94. Then go to -> 'Advance' and 'Add secret file' the add file- '.env' and co[py paste your .env content there and then deploy.
+95. Now after deployment,, my api is  "https://financial-tracker-suite-nodejs.onrender.com"
+96. To test in postman, the in environments add 'url' valiable like this "https://financial-tracker-suite-nodejs.onrender.com//api"
+97. Then while testing, update route with "{{url}}/users/login" like this.
