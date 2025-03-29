@@ -106,5 +106,6 @@ Steps:
 86. To edit any transaction, add new file side transactions->controllers as 'editTransaction.js" and add in routes.
 87. Write necessary code and save.
 88. Main project, done almost. Not if user tries to random route that is not in our stored routes, then thr 404 not found response is to be sent, so add the part in app.js.
-89.  Install point 11 of the above points, type in terminal and press enter.
-90.  
+89. Install point 11 of the above points, type in terminal and press enter.
+90. CORS- is used cause frontend, backend maybe deployes diferent place, they may have different IPs, so we install cors so that these doesn;t make problems.
+91. 
