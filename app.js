@@ -31,6 +31,14 @@ app.use("/api/users", userRoutes);
 app.use("/api/transactions", transactionRoutes);
 
 //end of all routes
+
+app.all("*", (req, res, next) => {
+  res.status(404).json({
+    status: "failed",
+    message: "Not Found!",
+  });
+});
+
 app.use(errorHandler);
 
 app.listen(8000, () => {
