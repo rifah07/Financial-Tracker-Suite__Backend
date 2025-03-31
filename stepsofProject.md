@@ -115,3 +115,4 @@ Steps:
 95. Now after deployment,, my api is  "https://financial-tracker-suite-nodejs.onrender.com"
 96. To test in postman, the in environments add 'url' valiable like this "https://financial-tracker-suite-nodejs.onrender.com//api"
 97. Then while testing, update route with: "{{url}}/users/register", "{{url}}/users/login" like this.
+98. Implemet user account deletion as this commit code.
