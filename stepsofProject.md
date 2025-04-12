@@ -22,7 +22,7 @@ Steps:
 4. Create an express app(const app, app.listen...), the code is in app.js
 5. Create a new folder named "handler" and a file inside it as "errorHandler.js" and write code for it, see in the file
 6. In terminal type "npm start" to run the project, it should be running.
-7. Add "models" folder ans add user schema there, with validation message
+7. Add "models" folder and add user schema there, with validation message
 8. Now install packages in the above list (6)
 9. Go to 'app.js' and import "dotenv"
 10. Import mongoose, write codes in app.js to connect database, add api in the .env file showed as example.env file
