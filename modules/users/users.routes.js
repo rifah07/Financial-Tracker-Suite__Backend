@@ -7,6 +7,7 @@ const auth = require("../../middleware/auth");
 const forgotPassword = require("./controllers/forgotPassword");
 const resetPassword = require("./controllers/resetPassword");
 const deleteAccount = require("./controllers/deleteAccount");
+const logout = require("./controllers/logout");
 
 const userRoutes = express.Router();
 
@@ -20,6 +21,7 @@ userRoutes.post("/resetpw", resetPassword);
 userRoutes.use(auth);
 
 userRoutes.get("/dashboard", userDashboard);
+userRoutes.post("/logout", logout);
 userRoutes.delete("/deleteAccount/:user_id", deleteAccount);
 
 module.exports = userRoutes;

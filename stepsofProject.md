@@ -11,6 +11,7 @@ Installation commands:
 9. npm i validator
 10. npm i nodemailer
 11. npm i cors
+12. npm install cookie-parser
 
 
 
@@ -117,4 +118,6 @@ Steps:
 97. Then while testing, update route with: "{{url}}/users/register", "{{url}}/users/login" like this.
 98. Implemet user account deletion as this commit code.
 99. Add refreshToken.js in model, update middleware with it.
-100. Update login.js with refresttoken.
+100. Update login.js with refreshtoken.
+101. Install point 12 above.
+102. Update app.js with cookie parser.s

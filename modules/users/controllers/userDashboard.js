@@ -6,13 +6,13 @@ const userDashboard = async (req, res) => {
 
   const getUser = await usersModel
     .findOne({
-      _id: req.user._id,
+      _id: req.user.id,
     })
     .select("-password"); //name balance , all except password
 
   const transactions = await transactionsModel
     .find({
-      user_id: req.user._id,
+      user_id: req.user.id,
     })
     .sort("-createdAt")
     .limit(5); //for desending sort oredr -createdAt, for assending createdAt
