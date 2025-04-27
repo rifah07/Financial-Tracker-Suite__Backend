@@ -1,6 +1,6 @@
 const jsonwebtoken = require("jsonwebtoken");
 const mongoose = require("mongoose");
-const RefreshToken = require("../models/refreshToken"); // adjust path if needed
+const RefreshToken = require("../models/refreshToken");
 
 const auth = async (req, res, next) => {
   try {

@@ -116,4 +116,5 @@ Steps:
 96. To test in postman, the in environments add 'url' valiable like this "https://financial-tracker-suite-nodejs.onrender.com//api"
 97. Then while testing, update route with: "{{url}}/users/register", "{{url}}/users/login" like this.
 98. Implemet user account deletion as this commit code.
-99. Add refreshToken.js in model
+99. Add refreshToken.js in model, update middleware with it.
+100. Update login.js with refresttoken.
