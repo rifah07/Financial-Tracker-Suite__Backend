@@ -12,6 +12,8 @@ Installation commands:
 10. npm i nodemailer
 11. npm i cors
 12. npm install cookie-parser
+13. npm install --save-dev @types/swagger-ui-express
+14. npm install --save-dev @types/swagger-jsdoc
 
 
 
@@ -121,3 +123,4 @@ Steps:
 100. Update login.js with refreshtoken.
 101. Install point 12 above.
 102. Update app.js with cookie parser.s
+103. Swagger UI installed
