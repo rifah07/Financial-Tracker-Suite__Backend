@@ -18,6 +18,28 @@ app.use(cors());
 app.use(cookieParser());
 
 
+// Swagger setup
+const swaggerOptions = {
+  swaggerDefinition: {
+    openapi: "3.0.0",
+    info: {
+      title: "Financial Tracker Suite API",
+      version: "1.0.0",
+      description: "API documentation for the Financial Tracker Suite",
+    },
+    servers: [
+      {
+        url: `http://localhost:${process.env.PORT || 8000}`,
+      },
+    ],
+  },
+  apis: ["./modules/**/*.routes.js"],
+};
+
+const swaggerSpec = swaggerJsDoc(swaggerOptions);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+
 mongoose
   .connect(process.env.MONGO_URI, {})
   .then(() => {

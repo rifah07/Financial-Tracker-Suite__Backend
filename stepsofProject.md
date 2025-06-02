@@ -122,4 +122,5 @@ Steps:
 100. Update login.js with refreshtoken.
 101. Install point 12 above.
 102. Update app.js with cookie parser.s
-103. Swagger UI installed using point 1 above
+103. Swagger UI installed using point 13 above.
+104. Now you can go to {{url}}api-docs/ to see swagger documentetion
