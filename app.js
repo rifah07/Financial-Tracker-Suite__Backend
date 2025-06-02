@@ -37,6 +37,22 @@ app.use("/api/transactions", transactionRoutes);
 
 //end of all routes
 
+
+
+// Welcome route
+app.get("/", (req,res) => {
+  res.status(200).json({
+    status: "success",
+    message: "Welcome to Finantial Tracker Suite",
+    version: "1.0.0",
+   // documentation: `http://localhost:${process.env.PORT || 8000}/api-docs`,
+    endpoints: {
+      users: "/api/users",
+      transactions: "/api/transactions",
+    },
+  });
+});
+
 app.all("*", (req, res, next) => {
   res.status(404).json({
     status: "failed",
@@ -46,6 +62,8 @@ app.all("*", (req, res, next) => {
 
 app.use(errorHandler);
 
-app.listen(8000, () => {
-  console.log("Server started successfully");
+const PORT = process.env.PORT || 8000;
+
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
