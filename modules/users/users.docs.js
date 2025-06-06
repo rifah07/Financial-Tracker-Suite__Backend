@@ -92,3 +92,57 @@
  *                   example: "Internal server error"
  *     security: []
  */
+/**
+ * @swagger
+ * /api/users/logout:
+ *   post:
+ *     tags: [Users]
+ *     summary: User logout
+ *     description: Logs out the authenticated user by clearing cookies and removing refresh token from database
+ *     security:
+ *       - bearerAuth: []
+ *       - cookieAuth: []
+ *     responses:
+ *       200:
+ *         description: Logout successful
+ *         headers:
+ *           Set-Cookie:
+ *             description: Clears both accessToken and refreshToken cookies
+ *             schema:
+ *               type: string
+ *               example: "accessToken=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT; HttpOnly; Secure; SameSite=Strict, refreshToken=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT; HttpOnly; Secure; SameSite=Strict"
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: "Success"
+ *                 message:
+ *                   type: string
+ *                   example: "Logged out successfully"
+ *       401:
+ *         description: Unauthorized - Invalid or missing authentication
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: "Authentication required"
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: "Failed"
+ *                 message:
+ *                   type: string
+ *                   example: "Database connection error"
+ */
