@@ -4,7 +4,8 @@ const RefreshToken = require("../models/refreshToken");
 
 const auth = async (req, res, next) => {
   try {
-    let accessToken = req.headers.authorization?.replace("Bearer ", "");
+    // Priority: Authorization header first (for React API calls), then cookies (for browser)
+    let accessToken = req.headers.authorization?.replace("Bearer ", "") || req.cookies.accessToken;
 
     if (!accessToken) throw new Error("Access token missing");
 
@@ -17,6 +18,7 @@ const auth = async (req, res, next) => {
         throw new Error("Invalid access token");
       }
 
+      // Token expired, try to refresh using refresh token
       const refreshToken = req.cookies.refreshToken;
       if (!refreshToken) throw new Error("Refresh token missing");
 
@@ -31,12 +33,16 @@ const auth = async (req, res, next) => {
         { expiresIn: "15m" }
       );
 
+      // Set new access token in cookie
       res.cookie('accessToken', newAccessToken, {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
         sameSite: 'strict',
         maxAge: 15 * 60 * 1000, // 15 minutes
       });
+
+      // Also send new token in response header for React to use
+      res.setHeader('X-New-Access-Token', newAccessToken);
 
       req.user = refreshPayload;
       return next();
