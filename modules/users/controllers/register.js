@@ -9,14 +9,14 @@ const register = async (req, res) => {
   const { email, password, confirm_password, name, balance } = req.body;
 
   //validations
+
   if (!email) throw "E-mail must be provided.";
   if (!password) throw "Password must be provided.";
   if (password.length < 5)
-    throw "Password must be at least 5 characters long.";
+    throw "Password must be at least 5 caharacters long.";
   if (!name) throw "Name must be provided.";
   if (password !== confirm_password)
     throw "Looks like password and confirm password does not match.";
-
   const getDuplicateEmail = await usersModel.findOne({
     email: email,
   });
@@ -30,42 +30,10 @@ const register = async (req, res) => {
     name: name,
     email: email,
     password: hashedPassword,
-    balance: balance || 0, // Default balance to 0 if not provided
+    balance: balance,
   });
 
   const accessToken = await jwtManager(createdUser);
-
-  // Create refresh token like in login
-  const refreshToken = jsonwebtoken.sign(
-    { id: createdUser._id },
-    process.env.jwt_salt,
-    { expiresIn: "7d" }
-  );
-
-  // Save Refresh Token to DB with device info
-  await RefreshToken.create({
-    token: refreshToken,
-    userId: createdUser._id,
-    deviceInfo: {
-      userAgent: req.headers['user-agent'],
-      ipAddress: req.ip || req.connection.remoteAddress
-    }
-  });
-
-  // Set both tokens in cookies like in login
-  res.cookie('accessToken', accessToken, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'strict',
-    maxAge: 15 * 60 * 1000, // 15 minutes
-  });
-
-  res.cookie('refreshToken', refreshToken, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'strict',
-    maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
-  });
 
   //send email
   await emailManager(
@@ -76,10 +44,9 @@ const register = async (req, res) => {
   );
 
   res.status(201).json({
-    status: "Success",
-    message: "Registration successful! Welcome to Financial Tracker Suite.",
+    status: "Congratulations! You've registered successfully!",
     accessToken: accessToken,
   });
-}
+};
 
 module.exports = register;
