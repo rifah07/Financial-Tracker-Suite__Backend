@@ -10,6 +10,8 @@ const userDashboard = async (req, res) => {
     })
     .select("-password"); //name balance , all except password
 
+  if (!getUser) throw "User not found";
+
   const transactions = await transactionsModel
     .find({
       user_id: req.user._id,
@@ -18,9 +20,9 @@ const userDashboard = async (req, res) => {
     .limit(5); //for desending sort oredr -createdAt, for assending createdAt
 
   res.status(200).json({
-    status: "Successfull",
+    status: "Success",
     data: getUser,
-    transactions, //same as transactions: transactions
+    transactions,
   });
 };
 
