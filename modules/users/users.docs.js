@@ -7,6 +7,95 @@
 
 /**
  * @swagger
+ * /api/users/register:
+ *   post:
+ *     tags: [Users]
+ *     summary: Register a new user
+ *     description: Creates a new user account and returns an access token. Sends a welcome email upon successful registration.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - name
+ *               - email
+ *               - password
+ *               - confirm_password
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 description: Full name of the user
+ *                 example: "John Doe"
+ *               email:
+ *                 type: string
+ *                 format: email
+ *                 description: User's email address
+ *                 example: "johndoe@example.com"
+ *               password:
+ *                 type: string
+ *                 format: password
+ *                 description: User's password (minimum 5 characters)
+ *                 example: "securePassword123"
+ *               confirm_password:
+ *                 type: string
+ *                 format: password
+ *                 description: Must match the password
+ *                 example: "securePassword123"
+ *               balance:
+ *                 type: number
+ *                 description: Optional initial balance (optional)
+ *                 example: 500
+ *     responses:
+ *       201:
+ *         description: User registered successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: "Congratulations! You've registered successfully!"
+ *                 accessToken:
+ *                   type: string
+ *                   description: JWT access token
+ *                   example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+ *       400:
+ *         description: Bad request - Missing or invalid inputs
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: "Password must be at least 5 characters long."
+ *       409:
+ *         description: Conflict - Email already in use
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: "This email already has an account, try with another E-mail"
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   example: "Internal server error"
+ *     security: []
+ */
+/**
+ * @swagger
  * /api/users/login:
  *   post:
  *     tags: [Users]
