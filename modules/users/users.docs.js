@@ -92,3 +92,155 @@
  *                   example: "Internal server error"
  *     security: []
  */
+/**
+ * @swagger
+ * /api/users/dashboard:
+ *   get:
+ *     tags: [Users]
+ *     summary: Get user dashboard data
+ *     description: Retrieves authenticated user's profile information and recent transactions. User must be logged in with valid JWT token.
+ *     security:
+ *       - bearerAuth: []
+ *       - cookieAuth: []
+ *     responses:
+ *       200:
+ *         description: Dashboard data retrieved successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: "Success"
+ *                 data:
+ *                   type: object
+ *                   description: User profile data (password excluded)
+ *                   properties:
+ *                     _id:
+ *                       type: string
+ *                       example: "64abcdef1234567890"
+ *                     email:
+ *                       type: string
+ *                       format: email
+ *                       example: "user@example.com"
+ *                     name:
+ *                       type: string
+ *                       example: "John Doe"
+ *                     balance:
+ *                       type: number
+ *                       example: 1500.75
+ *                     createdAt:
+ *                       type: string
+ *                       format: date-time
+ *                       example: "2023-07-10T10:30:00.000Z"
+ *                     updatedAt:
+ *                       type: string
+ *                       format: date-time
+ *                       example: "2023-07-15T14:20:00.000Z"
+ *                 transactions:
+ *                   type: array
+ *                   description: Last 5 transactions ordered by creation date (descending)
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       _id:
+ *                         type: string
+ *                         example: "64xyz789abc123def456"
+ *                       user_id:
+ *                         type: string
+ *                         example: "64abcdef1234567890"
+ *                       amount:
+ *                         type: number
+ *                         example: -50.25
+ *                       type:
+ *                         type: string
+ *                         example: "debit"
+ *                       description:
+ *                         type: string
+ *                         example: "Online purchase"
+ *                       createdAt:
+ *                         type: string
+ *                         format: date-time
+ *                         example: "2023-07-15T09:45:00.000Z"
+ *                       updatedAt:
+ *                         type: string
+ *                         format: date-time
+ *                         example: "2023-07-15T09:45:00.000Z"
+ *       400:
+ *         description: Bad request - Database error or invalid request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: "Failed"
+ *                 message:
+ *                   type: string
+ *                   examples:
+ *                     user_not_found:
+ *                       value: "User not found"
+ *                     database_error:
+ *                       value: "Database connection error"
+ *       401:
+ *         description: Unauthorized - Invalid or missing authentication token
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: "Failed"
+ *                 message:
+ *                   type: string
+ *                   examples:
+ *                     no_token:
+ *                       value: "Access token required"
+ *                     invalid_token:
+ *                       value: "Invalid or expired token"
+ *       403:
+ *         description: Forbidden - Token valid but insufficient permissions
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: "Failed"
+ *                 message:
+ *                   type: string
+ *                   example: "Access denied"
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: "Failed"
+ *                 message:
+ *                   type: string
+ *                   example: "Internal server error"
+ */
+
+/**
+ * @swagger
+ * components:
+ *   securitySchemes:
+ *     bearerAuth:
+ *       type: http
+ *       scheme: bearer
+ *       bearerFormat: JWT
+ *       description: JWT access token obtained from login
+ *     cookieAuth:
+ *       type: apiKey
+ *       in: cookie
+ *       name: accessToken
+ *       description: HTTP-only cookie containing JWT access token
+ */
