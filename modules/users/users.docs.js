@@ -244,3 +244,111 @@
  *       name: accessToken
  *       description: HTTP-only cookie containing JWT access token
  */
+/**
+ * @swagger
+ * /api/users/logout:
+ *   post:
+ *     tags: [Users]
+ *     summary: User logout
+ *     description: Logs out the authenticated user by deleting refresh tokens from database and clearing HTTP-only cookies. Invalidates both specific token and all user tokens for security.
+ *     security:
+ *       - bearerAuth: []
+ *       - cookieAuth: []
+ *     requestBody:
+ *       required: false
+ *       description: No request body required
+ *     responses:
+ *       200:
+ *         description: Logout successful
+ *         headers:
+ *           Set-Cookie:
+ *             description: Clears both access token and refresh token HTTP-only cookies
+ *             schema:
+ *               type: string
+ *               example: "accessToken=; HttpOnly; Secure; SameSite=Strict; Max-Age=0, refreshToken=; HttpOnly; Secure; SameSite=Strict; Max-Age=0"
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: "Success"
+ *                 message:
+ *                   type: string
+ *                   example: "Logged out successfully"
+ *       400:
+ *         description: Bad request - Database error or invalid request
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: "Failed"
+ *                 message:
+ *                   type: string
+ *                   examples:
+ *                     database_error:
+ *                       value: "Database connection error"
+ *                     token_deletion_failed:
+ *                       value: "Failed to delete refresh token"
+ *       401:
+ *         description: Unauthorized - Invalid or missing authentication token
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: "Failed"
+ *                 message:
+ *                   type: string
+ *                   examples:
+ *                     no_token:
+ *                       value: "Access token required"
+ *                     invalid_token:
+ *                       value: "Invalid or expired token"
+ *       403:
+ *         description: Forbidden - Token valid but insufficient permissions
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: "Failed"
+ *                 message:
+ *                   type: string
+ *                   example: "Access denied"
+ *       500:
+ *         description: Internal server error (fallback for unexpected errors)
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: "Failed"
+ *                 message:
+ *                   type: string
+ *                   example: "Internal server error"
+ *     parameters: []
+ *     examples:
+ *       successful_logout:
+ *         summary: Successful logout with cookies cleared
+ *         description: User successfully logged out, all tokens invalidated
+ *         value:
+ *           status: "Success"
+ *           message: "Logged out successfully"
+ *       partial_logout:
+ *         summary: Logout without refresh token cookie
+ *         description: User logged out but no refresh token cookie was present (still successful)
+ *         value:
+ *           status: "Success"
+ *           message: "Logged out successfully"
+ */
