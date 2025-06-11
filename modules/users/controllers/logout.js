@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const logout = async (req, res) => {
   try {
-    const RefreshToken = mongoose.model("refresh_tokens");
+    const RefreshToken = require("../../../models/refreshToken");
     
     // Get refresh token from cookies 
     const refreshToken = req.cookies.refreshToken;
@@ -14,8 +14,8 @@ const logout = async (req, res) => {
     
     // For React: Also delete all refresh tokens for this user as fallback
     // This ensures logout works even if cookie wasn't accessible
-    if (req.user && req.user.id) {
-      await RefreshToken.deleteMany({ userId: req.user.id });
+    if (req.user && req.user._id) { // Changed from id to _id to match your login code
+      await RefreshToken.deleteMany({ userId: req.user._id });
     }
 
     // Clear cookies
@@ -36,9 +36,9 @@ const logout = async (req, res) => {
       message: "Logged out successfully"
     });
   } catch (error) {
-    res.status(500).json({
+    res.status(400).json({
       status: "Failed",
-      message: error.message
+      message: error.message || error,
     });
   }
 };
