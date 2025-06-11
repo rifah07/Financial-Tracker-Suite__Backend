@@ -352,3 +352,144 @@
  *           status: "Success"
  *           message: "Logged out successfully"
  */
+/**
+ * @swagger
+ * /api/users/delete-account:
+ *   delete:
+ *     tags: [Users]
+ *     summary: Delete user account
+ *     description: Permanently deletes the authenticated user's account along with all associated data including refresh tokens. Also clears HTTP-only cookies. This action is irreversible.
+ *     security:
+ *       - bearerAuth: []
+ *       - cookieAuth: []
+ *     requestBody:
+ *       required: false
+ *       description: No request body required - uses authenticated user's ID
+ *     responses:
+ *       200:
+ *         description: Account deleted successfully
+ *         headers:
+ *           Set-Cookie:
+ *             description: Clears both access token and refresh token HTTP-only cookies
+ *             schema:
+ *               type: string
+ *               example: "accessToken=; HttpOnly; Secure; SameSite=Strict; Max-Age=0, refreshToken=; HttpOnly; Secure; SameSite=Strict; Max-Age=0"
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: "Success"
+ *                 message:
+ *                   type: string
+ *                   example: "Account deleted successfully"
+ *       400:
+ *         description: Bad request - Database error, missing user ID, or deletion failed
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: "Failed"
+ *                 message:
+ *                   type: string
+ *                   examples:
+ *                     missing_user_id:
+ *                       value: "User ID required"
+ *                     database_error:
+ *                       value: "Database connection error"
+ *                     deletion_failed:
+ *                       value: "Failed to delete user account"
+ *       401:
+ *         description: Unauthorized - Invalid or missing authentication token
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: "Failed"
+ *                 message:
+ *                   type: string
+ *                   examples:
+ *                     no_token:
+ *                       value: "Access token required"
+ *                     invalid_token:
+ *                       value: "Invalid or expired token"
+ *       403:
+ *         description: Forbidden - Token valid but insufficient permissions
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: "Failed"
+ *                 message:
+ *                   type: string
+ *                   example: "Access denied"
+ *       404:
+ *         description: Not found - User account doesn't exist or already deleted
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: "Failed"
+ *                 message:
+ *                   type: string
+ *                   example: "User not found or already deleted"
+ *       500:
+ *         description: Internal server error (fallback for unexpected errors)
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: "Failed"
+ *                 message:
+ *                   type: string
+ *                   example: "Internal server error"
+ *     parameters: []
+ *     examples:
+ *       successful_deletion:
+ *         summary: Successful account deletion
+ *         description: User account and all associated data permanently deleted
+ *         value:
+ *           status: "Success"
+ *           message: "Account deleted successfully"
+ *       user_not_found:
+ *         summary: User account not found
+ *         description: Attempted to delete non-existent or already deleted account
+ *         value:
+ *           status: "Failed"
+ *           message: "User not found or already deleted"
+ *     x-codeSamples:
+ *       - lang: 'curl'
+ *         source: |
+ *           curl -X DELETE \
+ *             'https://api.example.com/api/users/delete-account' \
+ *             -H 'Authorization: Bearer YOUR_JWT_TOKEN' \
+ *             -H 'Content-Type: application/json'
+ *       - lang: 'JavaScript'
+ *         source: |
+ *           fetch('/api/users/delete-account', {
+ *             method: 'DELETE',
+ *             headers: {
+ *               'Authorization': 'Bearer ' + token,
+ *               'Content-Type': 'application/json'
+ *             }
+ *           })
+ *           .then(response => response.json())
+ *           .then(data => console.log(data));
+ */
