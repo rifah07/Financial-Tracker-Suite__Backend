@@ -532,3 +532,82 @@
  *                   type: string
  *                   example: "Internal server error"
  */
+/**
+ * @swagger
+ * /api/users/forgotpw:
+ *   post:
+ *     tags: [Users]
+ *     summary: Send password reset code
+ *     description: Sends a 5-digit reset code to the user's email address if the account exists.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - email
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 format: email
+ *                 example: user@example.com
+ *     responses:
+ *       200:
+ *         description: Reset code sent successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: Reset code sent to email successfully
+ *       400:
+ *         description: Bad request (missing email or user not found)
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: failed
+ *                 error:
+ *                   type: string
+ *                   examples:
+ *                     missing_email:
+ *                       value: "Your E-mail must be provided"
+ *                     email_not_found:
+ *                       value: "This email address does not exist in the system!"
+ *       500:
+ *         description: Internal server error (e.g., email sending failed)
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: failed
+ *                 error:
+ *                   type: string
+ *                   example: "Internal server error"
+ *     x-codeSamples:
+ *       - lang: 'curl'
+ *         source: |
+ *           curl -X POST https://your-domain.com/api/users/forgot-password \
+ *           -H 'Content-Type: application/json' \
+ *           -d '{"email": "user@example.com"}'
+ *       - lang: 'JavaScript'
+ *         source: |
+ *           fetch('/api/users/forgot-password', {
+ *             method: 'POST',
+ *             headers: {
+ *               'Content-Type': 'application/json'
+ *             },
+ *             body: JSON.stringify({ email: 'user@example.com' })
+ *           })
+ *           .then(res => res.json())
+ *           .then(data => console.log(data));
+ */
