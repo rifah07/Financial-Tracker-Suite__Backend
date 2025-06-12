@@ -611,3 +611,60 @@
  *           .then(res => res.json())
  *           .then(data => console.log(data));
  */
+/**
+ * @swagger
+ * /api/users/resetpw:
+ *   post:
+ *     tags:
+ *       - Users
+ *     summary: Reset password using email and reset code
+ *     description: Allows users to reset their password by providing email, reset code, and a new password.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - email
+ *               - new_password
+ *               - reset_code
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 format: email
+ *                 example: user@example.com
+ *               new_password:
+ *                 type: string
+ *                 example: NewPassword123
+ *               reset_code:
+ *                 type: string
+ *                 example: "12345"
+ *     responses:
+ *       200:
+ *         description: Password updated successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: Success
+ *                 message:
+ *                   type: string
+ *                   example: Password updated successfully!!
+ *       400:
+ *         description: Bad request or invalid inputs
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: failed
+ *                 error:
+ *                   type: string
+ *                   example: Reset code does not match
+ */
