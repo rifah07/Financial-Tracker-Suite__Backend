@@ -13,6 +13,7 @@ Installation commands:
 11. npm i cors
 12. npm install cookie-parser
 13. npm install swagger-jsdoc swagger-ui-express
+14. npm install json2csv
 
 
 
@@ -124,3 +125,4 @@ Steps:
 102. Update app.js with cookie parser.s
 103. Swagger UI installed using point 13 above.
 104. Now you can go to {{url}}api-docs/ to see swagger documentetion
+105. Install new package to download report using point 14 above
