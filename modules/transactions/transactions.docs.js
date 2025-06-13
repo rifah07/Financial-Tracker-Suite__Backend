@@ -279,3 +279,75 @@
  *                   type: string
  *                   example: You must enter Transaction Id
  */
+/**
+ * @swagger
+ * /api/transactions/report:
+ *   get:
+ *     summary: Generate transaction report with filters and download option
+ *     tags:
+ *       - Transactions
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: type
+ *         schema:
+ *           type: string
+ *           enum: [income, expense]
+ *         description: Filter by transaction type (income or expense)
+ *       - in: query
+ *         name: start_date
+ *         schema:
+ *           type: string
+ *           format: date
+ *         description: Start date for filtering transactions (YYYY-MM-DD)
+ *       - in: query
+ *         name: end_date
+ *         schema:
+ *           type: string
+ *           format: date
+ *         description: End date for filtering transactions (YYYY-MM-DD)
+ *       - in: query
+ *         name: download
+ *         schema:
+ *           type: string
+ *           enum: [csv]
+ *         description: Set to 'csv' to download the report as a CSV file
+ *     responses:
+ *       200:
+ *         description: Filtered transactions or downloadable CSV
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: Success
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       _id:
+ *                         type: string
+ *                         example: "6658dce9fc13ae1d610002b4"
+ *                       user_id:
+ *                         type: string
+ *                         example: "6658dc8dfc13ae1d610001f1"
+ *                       amount:
+ *                         type: number
+ *                         example: 150
+ *                       transaction_type:
+ *                         type: string
+ *                         example: expense
+ *                       remarks:
+ *                         type: string
+ *                         example: "Bought books"
+ *                       createdAt:
+ *                         type: string
+ *                         format: date-time
+ *                         example: "2025-06-10T09:00:00Z"
+ *       400:
+ *         description: Invalid input or missing parameters
+ */
