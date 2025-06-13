@@ -351,3 +351,57 @@
  *       400:
  *         description: Invalid input or missing parameters
  */
+/**
+ * @swagger
+ * /api/transactions/summary:
+ *   get:
+ *     summary: Get transaction summary (daily/monthly/yearly)
+ *     tags:
+ *       - Transactions
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: type
+ *         required: true
+ *         schema:
+ *           type: string
+ *           enum: [daily, monthly, yearly]
+ *         description: Type of summary to retrieve
+ *     responses:
+ *       200:
+ *         description: Transaction summary successfully retrieved
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: success
+ *                 summaryType:
+ *                   type: string
+ *                   example: monthly
+ *                 initialBalance:
+ *                   type: number
+ *                   example: 1000
+ *                 totalIncome:
+ *                   type: number
+ *                   example: 4000
+ *                 totalExpense:
+ *                   type: number
+ *                   example: 2500
+ *                 netChange:
+ *                   type: number
+ *                   example: 1500
+ *                 finalBalance:
+ *                   type: number
+ *                   example: 2500
+ *                 totalTransactions:
+ *                   type: integer
+ *                   example: 9
+ *       400:
+ *         description: Invalid summary type
+ *       401:
+ *         description: Unauthorized
+ */

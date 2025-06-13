@@ -3,6 +3,7 @@ const moment = require("moment");
 
 const getTransactionSummary = async (req, res) => {
     const transactionsModel = mongoose.model("transactions");
+    const usersModel = mongoose.model("users");
     const { type } = req.query;
 
     if (!["daily", "monthly", "yearly"].includes(type)) {
@@ -12,7 +13,6 @@ const getTransactionSummary = async (req, res) => {
     const userId = req.user._id;
 
     let startDate, endDate;
-
     const today = moment().startOf("day");
 
     if (type === "daily") {
@@ -45,14 +45,18 @@ const getTransactionSummary = async (req, res) => {
         }
     });
 
-    const netBalance = totalIncome - totalExpense;
+    const user = await usersModel.findById(userId).select("balance");
+
+    const netChange = totalIncome - totalExpense;
 
     res.status(200).json({
         status: "success",
-        summaryType: type, // daily/monthly/yearly
+        summaryType: type,
+        initialBalance: user.balance - netChange, // backward-calculated
         totalIncome,
         totalExpense,
-        netBalance,
+        netChange,
+        finalBalance: user.balance,
         totalTransactions: transactions.length,
     });
 };
