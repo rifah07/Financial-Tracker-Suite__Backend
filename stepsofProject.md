@@ -14,6 +14,7 @@ Installation commands:
 12. npm install cookie-parser
 13. npm install swagger-jsdoc swagger-ui-express
 14. npm install json2csv
+15. npm install moment
 
 
 
@@ -126,3 +127,4 @@ Steps:
 103. Swagger UI installed using point 13 above.
 104. Now you can go to {{url}}api-docs/ to see swagger documentetion
 105. Install new package to download report using point 14 above
+106. Install 'moment' package for taking curent time to get transaction summery, use point 15 above.
