@@ -112,3 +112,71 @@
  *                   type: string
  *                   example: Amount must be a number
  */
+/**
+ * @swagger
+ * /api/transactions:
+ *   get:
+ *     tags:
+ *       - Transactions
+ *     summary: Get all transactions for the logged-in user
+ *     description: Retrieves all income and/or expense transactions for the authenticated user. Optionally filter by transaction type using query parameters.
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: transaction_type
+ *         schema:
+ *           type: string
+ *           enum: [income, expense]
+ *         description: Filter transactions by type (income or expense)
+ *     responses:
+ *       200:
+ *         description: List of user's transactions
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: All your transaction information are here
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       _id:
+ *                         type: string
+ *                         example: 665fa6d842e82a6dd63bda1f
+ *                       user_id:
+ *                         type: string
+ *                         example: 665fa6c2bfa29a29f2e5a10a
+ *                       amount:
+ *                         type: number
+ *                         example: 500
+ *                       transaction_type:
+ *                         type: string
+ *                         example: income
+ *                       remarks:
+ *                         type: string
+ *                         example: Freelance payment
+ *                       createdAt:
+ *                         type: string
+ *                         format: date-time
+ *                       updatedAt:
+ *                         type: string
+ *                         format: date-time
+ *       400:
+ *         description: Invalid query or authentication error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: failed
+ *                 error:
+ *                   type: string
+ *                   example: Unauthorized or invalid input
+ */
