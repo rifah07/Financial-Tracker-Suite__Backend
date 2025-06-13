@@ -222,3 +222,60 @@
  *                   type: string
  *                   example: Please provide a valid id!
  */
+/**
+ * @swagger
+ * /api/transactions/:
+ *   patch:
+ *     tags:
+ *       - Transactions
+ *     summary: Edit an existing transaction
+ *     description: Update remarks, amount, and/or transaction type of a specific transaction. It also adjusts the user's balance accordingly.
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - transaction_id
+ *             properties:
+ *               transaction_id:
+ *                 type: string
+ *                 example: 665d2e3f60c3402d3c45a1a8
+ *               remarks:
+ *                 type: string
+ *                 example: Updated expense for groceries
+ *               amount:
+ *                 type: number
+ *                 example: 200
+ *               transaction_type:
+ *                 type: string
+ *                 enum: [income, expense]
+ *                 example: expense
+ *     responses:
+ *       200:
+ *         description: Transaction updated successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: Transaction updated successfully!
+ *       400:
+ *         description: Invalid input or missing required fields
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: failed
+ *                 error:
+ *                   type: string
+ *                   example: You must enter Transaction Id
+ */
