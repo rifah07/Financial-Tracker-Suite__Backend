@@ -38,3 +38,5 @@ const getTransactionReport = async (req, res) => {
     data: transactions,
   });
 };
+
+module.exports = getTransactionReport
