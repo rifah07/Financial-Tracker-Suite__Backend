@@ -15,6 +15,7 @@ Installation commands:
 13. npm install swagger-jsdoc swagger-ui-express
 14. npm install json2csv
 15. npm install moment
+16. npm install pdfkit moment
 
 
 
@@ -128,3 +129,4 @@ Steps:
 104. Now you can go to {{url}}api-docs/ to see swagger documentetion
 105. Install new package to download report using point 14 above
 106. Install 'moment' package for taking curent time to get transaction summery, use point 15 above.
+107. Install new package using 16 point above to let user download pdf format report
