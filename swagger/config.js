@@ -21,16 +21,7 @@ const swaggerOptions = {
             },
 
         ],
-        components: {
-            securitySchemes: {
-                BearerAuth: {
-                    type: 'http',
-                    scheme: 'bearer',
-                    bearerFormat: 'JWT',
-                    description: 'Enter JWT token obtained from login'
-                },
-            },
-        },
+        components: {},
         security: [
             {
                 bearerAuth: [],

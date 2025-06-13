@@ -17,7 +17,6 @@ const downloadTransactionSummery = async (req, res) => {
 
     const today = moment().startOf("day");
 
-    // Change these blocks for different ranges
     if (type === "daily") {
         startDate = today.toDate();
         endDate = moment(today).endOf("day").toDate();
@@ -85,6 +84,10 @@ const downloadTransactionSummery = async (req, res) => {
     transactions.forEach((tx, index) => {
         doc.text(`${index + 1}. ${tx.transaction_type.toUpperCase()} | Amount: $${tx.amount} | Remarks: ${tx.remarks} | Date: ${moment(tx.createdAt).format("LLL")}`);
     });
+    doc.moveDown(3);
+
+    doc.fontSize(10).text("All rights reserved", { align: "center" });
+    doc.fontSize(10).text("@Finalcial Tracker Suite", { align: "center" });
 
     doc.end();
 };
