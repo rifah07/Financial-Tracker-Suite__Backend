@@ -180,3 +180,45 @@
  *                   type: string
  *                   example: Unauthorized or invalid input
  */
+/**
+ * @swagger
+ * /api/transactions/{transaction_id}:
+ *   delete:
+ *     tags:
+ *       - Transactions
+ *     summary: Delete a specific transaction
+ *     description: Deletes a transaction by ID and updates the user's balance accordingly (reverses the transaction).
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: transaction_id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The MongoDB ObjectId of the transaction to be deleted
+ *     responses:
+ *       200:
+ *         description: Transaction deleted successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: Transaction deleted successfully
+ *       400:
+ *         description: Invalid transaction ID or transaction not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: failed
+ *                 error:
+ *                   type: string
+ *                   example: Please provide a valid id!
+ */
