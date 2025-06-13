@@ -8,6 +8,7 @@ const deleteTransaction = require("./controllers/deleteTransaction");
 const editTransaction = require("./controllers/editTransaction");
 const getTransactionReport = require("./controllers/getTransactionReport");
 const getTransactionSummary = require("./controllers/getTransactionSummary");
+const downloadTransactionSummery = require("./controllers/downloadTransactionSummery");
 
 const transactionRoutes = express.Router();
 
@@ -23,6 +24,7 @@ transactionRoutes.get("/", getTransactions);
 transactionRoutes.patch("/", editTransaction);
 transactionRoutes.get("/report", getTransactionReport)
 transactionRoutes.get("/summary", getTransactionSummary);
+transactionRoutes.get("/download", downloadTransactionSummery);
 transactionRoutes.delete("/:transaction_id", deleteTransaction);
 
 module.exports = transactionRoutes;

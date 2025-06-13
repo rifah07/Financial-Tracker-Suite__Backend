@@ -405,3 +405,33 @@
  *       401:
  *         description: Unauthorized
  */
+/**
+ * @swagger
+ * /api/transactions/download:
+ *   get:
+ *     summary: Download transaction report as PDF (daily/monthly/yearly)
+ *     tags:
+ *       - Transactions
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: type
+ *         required: true
+ *         schema:
+ *           type: string
+ *           enum: [daily, monthly, yearly]
+ *         description: Type of report to download
+ *     responses:
+ *       200:
+ *         description: PDF file of the transaction report
+ *         content:
+ *           application/pdf:
+ *             schema:
+ *               type: string
+ *               format: binary
+ *       400:
+ *         description: Invalid request or unsupported report type
+ *       401:
+ *         description: Unauthorized
+ */
