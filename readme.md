@@ -58,14 +58,37 @@ A full-featured personal finance management system built with **Express.js**, **
 - Date Handling: **Moment.js**
 - PDF Reports: **pdfkit**, **moment**
 
----
-
 
 ---
 
 ## 🧪 API Endpoints
 
 Swagger is available at: https://financial-tracker-suite-nodejs.onrender.com/api-docs/
+
+---
+
+
+Includes:
+- `/users/register`, `/users/login`, `/users/reset-password`, etc.
+- `/transactions/addIncome`, `/transactions/addExpense`, `/transactions`, `/transactions/:id`, etc.
+- `/transactions/summary?type=daily|monthly|yearly`
+- `/transactions/report/pdf`
+- `/transactions/report/custom?start_date=...&end_date=...`
+
+---
+
+## 🛠️ Installation & Run
+
+```bash
+git clone https://github.com/your-username/financial-tracker-suite.git
+cd financial-tracker-suite
+
+npm install
+npm run dev
+
+```bash
+
+See in example.env the environment varoables, and add in .env file.
 
 ---
 
