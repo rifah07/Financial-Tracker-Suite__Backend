@@ -67,3 +67,14 @@ A full-featured personal finance management system built with **Express.js**, **
 
 Swagger is available at: https://financial-tracker-suite-nodejs.onrender.com/api-docs/
 
+---
+
+## ✨ Upcoming (Frontend - In Sha Allah)
+The React frontend will be built in a separate repository and integrated with this backend via secure REST APIs.
+
+---
+
+## Acknowledgements
+Developed by Rifah Sajida Deya
+
+---
