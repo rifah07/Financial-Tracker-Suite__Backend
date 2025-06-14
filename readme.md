@@ -71,8 +71,8 @@ Swagger is available at: https://financial-tracker-suite-nodejs.onrender.com/api
 ## 🛠️ Installation & Run
 
 ```bash
-git clone https://github.com/your-username/financial-tracker-suite.git
-cd financial-tracker-suite
+git clone https://github.com/your-username/Financial-Tracker-Suite__Backend.git
+cd Financial-Tracker-Suite__Backend
 
 npm install
 npm run dev
