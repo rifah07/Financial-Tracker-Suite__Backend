@@ -41,7 +41,7 @@ A full-featured personal finance management system built with **Express.js**, **
 - Includes: total income, total expenses, net change, initial & final balance
 
 ### 📑 API Documentation
-- Integrated Swagger UI at `/api-docs`
+- Integrated Swagger UI at `https://financial-tracker-suite-nodejs.onrender.com/api-docs/`
 - Clearly structured endpoint descriptions
 - Easy testing via Swagger interface
 
