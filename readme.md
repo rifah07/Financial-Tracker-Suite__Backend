@@ -6,3 +6,64 @@ Developed with the robust and efficient **Express.js** framework, this web appli
 
 So, simplify your financial management with this easy-to-use web application and get a clear overview of your financial activity, all within a secure environment.
 
+# Project Description:
+
+
+# 💰 Financial Tracker Suite
+
+A full-featured personal finance management system built with **Express.js**, **MongoDB**, and **Swagger**. Users can manage income and expenses, generate reports, and monitor their financial summaries efficiently.
+
+---
+
+## 🚀 Features
+
+### Users
+- Register/Login with optional initial balance
+- Secure password hashing
+- Password reset via email
+- JWT-based authentication
+- Email integration for confirmations and password resets
+
+### 💸 Transactions
+- Add Income or Expense
+- View all transactions
+- Filter transactions by type (`income` or `expense`)
+- Edit or Delete any transaction
+- Automatically updates user balance based on transaction type
+
+### 📊 Reports
+- Daily, Monthly, Yearly Transaction Summaries
+- Custom date range filter
+- Download transactions as PDF report
+
+### 🧾 Summary
+- Get real-time summary for any period (daily/monthly/yearly)
+- Includes: total income, total expenses, net change, initial & final balance
+
+### 📑 API Documentation
+- Integrated Swagger UI at `/api-docs`
+- Clearly structured endpoint descriptions
+- Easy testing via Swagger interface
+
+---
+
+## ⚙️ Tech Stack
+
+- Backend: **Node.js**, **Express.js**
+- Database: **MongoDB + Mongoose**
+- Validation: **Validator.js**
+- Auth: **JWT**, **Bcrypt**
+- Emails: **Nodemailer**
+- API Docs: **Swagger**
+- Date Handling: **Moment.js**
+- PDF Reports: **pdfkit**, **moment**
+
+---
+
+
+---
+
+## 🧪 API Endpoints
+
+Swagger is available at: https://financial-tracker-suite-nodejs.onrender.com/api-docs/
+
