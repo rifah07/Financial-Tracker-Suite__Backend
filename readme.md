@@ -68,15 +68,6 @@ Swagger is available at: https://financial-tracker-suite-nodejs.onrender.com/api
 ---
 
 
-Includes:
-- `/users/register`, `/users/login`, `/users/reset-password`, etc.
-- `/transactions/addIncome`, `/transactions/addExpense`, `/transactions`, `/transactions/:id`, etc.
-- `/transactions/summary?type=daily|monthly|yearly`
-- `/transactions/report/pdf`
-- `/transactions/report/custom?start_date=...&end_date=...`
-
----
-
 ## 🛠️ Installation & Run
 
 ```bash
@@ -86,7 +77,7 @@ cd financial-tracker-suite
 npm install
 npm run dev
 
-```bash
+```
 
 See in example.env the environment varoables, and add in .env file.
 
