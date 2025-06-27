@@ -10,10 +10,12 @@ const setupSwagger = require("./swagger/config");
 
 require("dotenv").config();
 
+
+const app = express();
+
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://financial-tracker-suite-frontend.vercel.app",
-  
+  "https://financial-tracker-suite-frontend.vercel.app"  
 ];
 
 app.use(cors({
